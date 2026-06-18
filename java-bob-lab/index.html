@@ -1,0 +1,228 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Moderniser vos applications Java EE avec IBM Bob</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="Google Analytics ID (optionnel)"
+                  id="java-bob-lab"
+                  title="Moderniser vos applications Java EE avec IBM Bob"
+                  environment="web"
+                  feedback-link="https://github.com/votre-repo/issues">
+    
+      <google-codelab-step label="Introduction" duration="0">
+        <h2 is-upgraded>A qui s&#39;adresse ce lab ?</h2>
+<p>Aux entreprises souhaitant moderniser leur patrimoine Java existant, qu&#39;il s&#39;agisse :</p>
+<ul>
+<li>d&#39;applications Java EE historiques (<strong>Java EE 8 ou antérieur</strong>),</li>
+<li>exécutées sur des serveurs traditionnels comme : <ul>
+<li><strong>IBM WebSphere Application Server</strong> Version 6.1, ou ultérieure</li>
+<li><strong>WebLogic</strong> Version 6.x+</li>
+<li><strong>Apache Tomcat</strong> Version 6.0 (et ultérieure)</li>
+<li><strong>Red Hat Version JBoss</strong> 4.x+.</li>
+</ul>
+</li>
+</ul>
+<p>Ce lab démontre comment les outils IBM automatisent leur transformation vers des architectures modernes.</p>
+<h2 is-upgraded>Pourquoi moderniser ?</h2>
+<p>Les applications Java EE Legacy ont été développées il y a plusieurs années, souvent basés sur des technologies anciennes (Java EE, serveurs d&#39;applications monolithiques, frameworks obsolètes). Ces applications, bien que fonctionnelles, présentent plusieurs défis :</p>
+<ul>
+<li><strong>Maintenance coûteuse</strong> : Code difficile à comprendre et à modifier</li>
+<li><strong>Performance limitée</strong> : Architecture non optimisée pour le cloud</li>
+<li><strong>Sécurité</strong> : Vulnérabilités liées aux versions obsolètes</li>
+<li><strong>Scalabilité réduite</strong> : Difficulté à s&#39;adapter aux charges variables</li>
+<li><strong>Intégration complexe</strong> : Incompatibilité avec les technologies modernes</li>
+</ul>
+<h2 is-upgraded>Quels outils IBM pour les moderniser ?</h2>
+<p>Dans ce tutoriel, nous utiliserons deux outils puissants d&#39;IBM :</p>
+<p><strong>🔍 IBM Application Modernization Accelerator (AMA)</strong> - un outil qui analyse le code source d&#39;applications Java monolithiques existantes pour vous aider à évaluer la complexité de la migration et faciliter la refactorisation.</p>
+<ul>
+<li>Analyse automatique de l&#39;état de vos apps existantes</li>
+<li>Identifie les problèmes de compatibilité et dépendances</li>
+<li>Identifie les applications clés qui doivent être remplacées ou mises à niveau</li>
+<li>Estimation de l&#39;effort pour résoudre les problèmes de migration</li>
+<li>Propose des recommandations de modernisation</li>
+<li>Génère un paquet de migration pour aider à la conteneurisation et au déploiement</li>
+</ul>
+<p><strong>🤖 IBM Bob - an AI-augmented SDLC (Software Development Lifecycle) partner</strong> - outil d&#39;IA agentique qui gère tout le cycle de vie du logiciel - il ne s&#39;agit pas d&#39;un simple Assistant IA tel un partenaire de travail. Il peut décomposer des tâches, écrire le code, lancer des tests, rédiger la documentation et gérer les déploiements. Modèles hybrides : Il s&#39;appuie sur une combinaison de modèles d&#39;IA; les modèles Granite d&#39;IBM, mais aussi d&#39;autres modèles pour utiliser le plus adapté à chaque étape de votre projet.</p>
+<p>Couplé d&#39;un add-on <strong>Java Premium Package</strong>, Bob</p>
+<ul>
+<li>Assistant IA conversationnel pour la modernisation</li>
+<li>Aide à la refactorisation du code Java</li>
+<li>Génère automatiquement du code modernisé</li>
+<li>Accompagne les développeurs dans les meilleures pratiques</li>
+<li>Intégré directement dans votre IDE (VS Code)</li>
+</ul>
+<h2 is-upgraded>Ce que vous allez apprendre dans ce lab:</h2>
+<ul>
+<li>Analyser une application Java Legacy avec IBM AMA</li>
+<li>Interpréter les rapports de modernisation</li>
+<li>Utiliser IBM Bob pour refactoriser du code</li>
+<li>Appliquer les recommandations de modernisation</li>
+<li>Migrer vers des frameworks modernes (Spring Boot, Quarkus)</li>
+</ul>
+<h2 is-upgraded>Ce dont vous avez besoin:</h2>
+<ul>
+<li>Java JDK 11 ou supérieur installé</li>
+<li>IBM Bob installé</li>
+<li>Un accès à une VM TechZone où l&#39;on accède à IBM Application Modernization Accelerator</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Pré-requis" duration="0">
+        
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Étape 1 : Analyser des applications Java avec IBM AMA" duration="5">
+        <p><strong>Outil utilisé :</strong> IBM Application Modernization Accelerator (AMA)</p>
+<p>Dans cette étape, vous allez analyser une application existante afin d&#39;évaluer sa complexité et l&#39;effort nécessaire pour la migrer vers un serveur d&#39;application léger <strong>WebSphere Liberty</strong>.</p>
+<h2 is-upgraded>1. Démarrer AMA et créer un workspace</h2>
+<p>Connectez-vous sur <strong>Application Modernization Accelerator (AMA)</strong> en ouvrant ce lien depuis votre  navigateur:</p>
+<pre><code>https://localhost:443 A MODIFIER
+</code></pre>
+<p>Vous arrivez sur la page d&#39;accueil d&#39;AMA, où l&#39;on peut y voir nos workspaces - il s&#39;agit là d&#39;un espace de travail qui regroupe les applications analysées, avec leurs dépendances (bases de données, messaging, etc.) et les résultats d&#39;analyse et rapports.</p>
+<p>💡 <strong>Objectif :</strong> centraliser toutes les informations nécessaires pour planifier une migration. Un workspace correspond généralement à un périmètre applicatif (ex : un environnement WebSphere existant).</p>
+<p class="image-container"><img alt="Start AMA" src="img/9e8bf8d897cdb5de.png"></p>
+<p>Cliquez sur <strong>Create workspace</strong>, entrez le nom <code>tWAS</code> suivi de votre nom (car nous sommes sur un environnement partagé). Par exemple, <code>tWAS_Dupont</code></p>
+<p>Puis cliquez sur <strong>Create</strong>.</p>
+<p class="image-container"><img alt="Create workspace" src="img/dc0e8050ce038389.png"></p>
+<h2 is-upgraded>2. Importer les résultats d&#39;analyse</h2>
+<p>Cliquez sur <strong>Upload results</strong> puis sélectionnez le fichier :</p>
+<pre><code>Dmgr01.zip
+</code></pre>
+<p>💡 Ce fichier .zip est issu d&#39;une collecte de données réalisée sur votre environnement WebSphere existant (via un outil de découverte). Il contient notamment la configuration des serveurs, les applications déployées et les dépendances techniques (JDBC, JMS, etc.).</p>
+<p class="image-container"><img alt="Upload results" src="img/58f41faceadf82df.png"></p>
+<p>Choisissez <strong>Liberty</strong> comme cible de migration puis cliquez sur <strong>Confirm</strong>.</p>
+<p class="image-container"><img alt="Select Liberty" src="img/3c1b7944dcdd2771.png"></p>
+<h2 is-upgraded>3. Visualiser les applications</h2>
+<p>Dans le panneau <strong>Visualization</strong>, vous pouvez voir :</p>
+<ul>
+<li>3 applications détectées</li>
+<li>Une dépendance entre l&#39;application <strong>WebSphereBank</strong> et la base de données <strong>BANKDB</strong></li>
+</ul>
+<p class="image-container"><img alt="Visualization" src="img/8f314b7b21d7e108.png"></p>
+<p>Il s&#39;agit là d&#39;un exemple simplifié pour vous présenter AMA, mais dans la réalité un workspace typique ressemblerait plutôt à celà :</p>
+<p class="image-container"><img alt="Visualization" src="img/976bd397d996fb4c.png"></p>
+<p>💡 Dans un environnement réel, cette vue permet d&#39;identifier les dépendances entre applications (bases de données, files de messages, etc.) afin de construire une stratégie de migration cohérente.</p>
+<h2 is-upgraded>4. Évaluer la complexité et l&#39;effort de migration</h2>
+<p>Passez dans l&#39;onglet <strong>Assessment</strong>.</p>
+<p>AMA fournit une estimation de l&#39;effort pour moderniser les applications vers Liberty avec Java 8 :</p>
+<ul>
+<li><strong>Effort total estimé : 15,5 jours</strong></li>
+</ul>
+<p>Détail par application :</p>
+<ul>
+<li><strong>modresorts (simple)</strong><ul>
+<li>Aucun problème détecté</li>
+<li>Aucune modification nécessaire</li>
+<li>Compatible Liberty directement</li>
+</ul>
+</li>
+<li><strong>simple-pharmacy (modéré)</strong><ul>
+<li>2 problèmes identifiés</li>
+<li>Corrections partiellement automatisables</li>
+<li>Effort estimé pour un développeur expérimenté : <strong>1,5 jour</strong></li>
+</ul>
+</li>
+<li><strong>WebSphereBank (complexe)</strong><ul>
+<li>3 problèmes nécessitant des corrections manuelles</li>
+<li>Effort estimé pour un développeur expérimenté : <strong>14,5 jours</strong></li>
+</ul>
+</li>
+</ul>
+<p class="image-container"><img alt="Assessment" src="img/a22f22d190028132.png"></p>
+<h2 is-upgraded>5. Analyser une application en détail</h2>
+<p>Cliquez sur <strong>simple-pharmacy_war.ear</strong> pour explorer les actions nécessaires recommandées par AMA.</p>
+<p>Sur la gauche, le menu permet d&#39;explorer en détail :</p>
+<ul>
+<li><strong>Complexity score</strong> : vue détaillée des problèmes (déplier pour voir les détails)</li>
+<li><strong>Required code changes</strong> : recommandations de correction (recettes)</li>
+<li><strong>Issues</strong> : estimation détaillée des efforts</li>
+</ul>
+<p class="image-container"><img alt="Assessment Overview" src="img/4685c639d816b026.png"></p>
+<p>Cliquez sur <strong>Complexity score</strong> pour afficher plus de détails sur les deux problèmes détectés par AMA. Vous devez cliquer sur l&#39;icône en forme de flèche pour voir les détails.</p>
+<p class="image-container"><img alt="Complexity Score" src="img/3421b56088e70cad.png"></p>
+<p>Cliquez sur <strong>Required code changes</strong> pour voir la solution permettant de corriger l&#39;un des problèmes.</p>
+<p class="image-container"><img alt="Required changes" src="img/c182454344fae9cf.png"></p>
+<p>Cliquez sur <strong>Issues</strong> pour voir les estimations d&#39;effort plus en détail.</p>
+<p class="image-container"><img alt="Issues" src="img/828b9c20f941ae49.png"></p>
+<h2 is-upgraded>6. Consulter les rapports</h2>
+<p>Sur la gauche, AMA propose plusieurs rapports utiles :</p>
+<ul>
+<li><strong>Inventory report</strong> : vue globale des composants</li>
+<li><strong>Technology report</strong> : technologies utilisées</li>
+<li><strong>Analysis report</strong> : recommandations de modernisation</li>
+</ul>
+<p>💡 Ces rapports permettent de mieux comprendre les impacts de la migration. Vous pouvez également exporter les rapports pour les partager avec vos équipes de développement.</p>
+<h2 is-upgraded>7. Générer le plan de migration</h2>
+<p>Remontez en haut de la page et cliquez sur <strong>View migration plan</strong>.</p>
+<p>Le plan de migration regroupe tous les éléments nécessaires pour moderniser l&#39;application :</p>
+<ul>
+<li>les artefacts de déploiement (ex : <code>server.xml</code>, <code>Containerfile</code>)</li>
+<li>les rapports d&#39;analyse (inventory, technology, analysis)</li>
+<li>les recommandations de correction</li>
+<li>les dépendances identifiées</li>
+</ul>
+<p>Cliquez sur <strong>Download</strong> pour récupérer le plan (fichier <code>.zip</code>).</p>
+<h2 is-upgraded>8. Conclusion</h2>
+<p>Le plan de migration est un livrable central qui sert de point de départ à la modernisation. Il permet de :</p>
+<ul>
+<li><strong>Industrialiser la migration</strong> en standardisant les artefacts et les étapes à appliquer</li>
+<li><strong>Guider les développeurs</strong> avec des instructions concrètes pour corriger les incompatibilités</li>
+<li><strong>Partager une vision commune</strong> entre architectes, développeurs et équipes DevOps</li>
+</ul>
+<p><strong>Quel lien avec IBM Bob ?</strong> Ce plan n&#39;est pas seulement informatif, il est conçu pour être utilisé dans les étapes suivantes de la modernisation.</p>
+<p>Concrètement, il va servir à :</p>
+<ul>
+<li>Générer automatiquement les pipelines de build et déploiement</li>
+<li>Construire des images conteneurisées (via le Containerfile)</li>
+<li>Configurer les serveurs Liberty (server.xml)</li>
+<li>Accélérer la transformation vers un modèle cloud / Kubernetes</li>
+</ul>
+<p>💡 En résumé : <strong>AMA</strong> analyse et produit un plan, puis <strong>IBM Bob</strong> exploite ce plan pour automatiser la transformation et le déploiement.</p>
+<p>À l&#39;issue de cette étape, vous disposez :</p>
+<ul>
+<li>d&#39;un fichier .zip contenant tous les éléments de migration</li>
+<li>d&#39;une base prête à être utilisée dans les outils d&#39;automatisation comme IBM Bob.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Étape 2: Migrer vers un serveur d&#39;application Liberty" duration="0">
+        <h2 is-upgraded>Code exemple</h2>
+<pre><code language="language-python" class="language-python">print(&#34;Hello Codelab!&#34;)```</code></pre>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
