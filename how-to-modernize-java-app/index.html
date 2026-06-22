@@ -28,72 +28,144 @@
                   feedback-link="https://github.ibm.com/AHuillet/ama-bob-lab/issues">
     
       <google-codelab-step label="Introduction" duration="0">
-        <h2 is-upgraded>A qui s&#39;adresse ce lab ?</h2>
-<p>Aux entreprises souhaitant moderniser leur patrimoine Java existant, qu&#39;il s&#39;agisse :</p>
+        <p>Durée: 2 min</p>
+<p class="image-container"><img alt="Ama and Bob" src="img/2d4f3cd2ca6c7d41.png"></p>
+<h2 is-upgraded>A qui s&#39;adresse ce lab ?</h2>
+<p>Ce lab s&#39;adresse aux équipes souhaitant moderniser des applications Java EE existantes, exécutées sur des serveurs traditionnels comme :</p>
 <ul>
-<li>d&#39;applications Java EE historiques (<strong>Java EE 8 ou antérieur</strong>),</li>
-<li>exécutées sur des serveurs traditionnels comme : <ul>
 <li><strong>IBM WebSphere Application Server</strong> Version 6.1, ou ultérieure</li>
 <li><strong>WebLogic</strong> Version 6.x+</li>
 <li><strong>Apache Tomcat</strong> Version 6.0 (et ultérieure)</li>
 <li><strong>Red Hat Version JBoss</strong> 4.x+.</li>
 </ul>
-</li>
-</ul>
-<p>Ce lab démontre comment les outils IBM automatisent leur transformation vers des architectures modernes.</p>
+<p>Objectif : Ce lab démontre comment les outils IBM automatisent leur transformation vers des architectures modernes.</p>
 <h2 is-upgraded>Pourquoi moderniser ?</h2>
-<p>Les applications Java EE Legacy ont été développées il y a plusieurs années, souvent basés sur des technologies anciennes (Java EE, serveurs d&#39;applications monolithiques, frameworks obsolètes). Ces applications, bien que fonctionnelles, présentent plusieurs défis :</p>
+<p>Les applications Java EE Legacy ont été développées il y a plusieurs années, souvent basés sur des technologies anciennes (Java EE, serveurs d&#39;applications monolithiques, frameworks obsolètes). Ces applications présentent souvent des limites :</p>
 <ul>
-<li><strong>Maintenance coûteuse</strong> : Code difficile à comprendre et à modifier</li>
-<li><strong>Performance limitée</strong> : Architecture non optimisée pour le cloud</li>
-<li><strong>Sécurité</strong> : Vulnérabilités liées aux versions obsolètes</li>
-<li><strong>Scalabilité réduite</strong> : Difficulté à s&#39;adapter aux charges variables</li>
-<li><strong>Intégration complexe</strong> : Incompatibilité avec les technologies modernes</li>
+<li><strong>Maintenance complexe &amp; coûteuse</strong></li>
+<li><strong>Performance non optimisée pour le cloud</strong></li>
+<li><strong>Risque de sécurité</strong> (liées aux versions obsolètes)</li>
+<li><strong>Faible scalabilité</strong></li>
+<li><strong>Intégration difficile avec les technologies récentes</strong></li>
 </ul>
 <h2 is-upgraded>Quels outils IBM pour les moderniser ?</h2>
 <p>Dans ce tutoriel, nous utiliserons deux outils puissants d&#39;IBM :</p>
-<p><strong>🔍 IBM Application Modernization Accelerator (AMA)</strong> - un outil qui analyse le code source d&#39;applications Java monolithiques existantes pour vous aider à évaluer la complexité de la migration et faciliter la refactorisation.</p>
+<p><strong>🔍 IBM Application Modernization Accelerator (AMA)</strong> - analyse le code source d&#39;applications Java existantes pour :</p>
 <ul>
-<li>Analyse automatique de l&#39;état de vos apps existantes</li>
-<li>Identifie les problèmes de compatibilité et dépendances</li>
-<li>Identifie les applications clés qui doivent être remplacées ou mises à niveau</li>
-<li>Estimation de l&#39;effort pour résoudre les problèmes de migration</li>
-<li>Propose des recommandations de modernisation</li>
-<li>Génère un paquet de migration pour aider à la conteneurisation et au déploiement</li>
+<li><strong>identifier les dépendances et incompatibilités</strong></li>
+<li><strong>estimer l&#39;effort de migration</strong></li>
+<li><strong>faciliter la refactorisation</strong></li>
+<li><strong>générer un plan de modernisation</strong></li>
 </ul>
-<p><strong>🤖 IBM Bob - an AI-augmented SDLC (Software Development Lifecycle) partner</strong> - outil d&#39;IA agentique qui gère tout le cycle de vie du logiciel - il ne s&#39;agit pas d&#39;un simple Assistant IA tel un partenaire de travail. Il peut décomposer des tâches, écrire le code, lancer des tests, rédiger la documentation et gérer les déploiements. Modèles hybrides : Il s&#39;appuie sur une combinaison de modèles d&#39;IA; les modèles Granite d&#39;IBM, mais aussi d&#39;autres modèles pour utiliser le plus adapté à chaque étape de votre projet.</p>
-<p>Couplé d&#39;un add-on <strong>Java Premium Package</strong>, Bob</p>
+<p><strong>🤖 IBM Bob - an AI-augmented SDLC (Software Development Lifecycle) partner</strong> - un agent IA qui gère tout le cycle de vie du logiciel - il ne s&#39;agit pas d&#39;un simple Assistant IA mais d&#39;un partenaire de travail.</p>
+<p>Modèles hybrides : Il s&#39;appuie sur une combinaison de modèles d&#39;IA; les modèles Granite d&#39;IBM, mais aussi d&#39;autres modèles pour utiliser le plus adapté à chaque étape de votre projet.</p>
+<p>Couplé d&#39;un add-on <strong>Java Premium Package</strong>, Bob automatise la modernisation :</p>
 <ul>
-<li>Assistant IA conversationnel pour la modernisation</li>
-<li>Aide à la refactorisation du code Java</li>
-<li>Génère automatiquement du code modernisé</li>
-<li>Accompagne les développeurs dans les meilleures pratiques</li>
-<li>Intégré directement dans votre IDE (VS Code)</li>
+<li>refactorisation du code Java</li>
+<li>exécution des builds et tests</li>
+<li>déploiement auto sur Liberty</li>
+<li>accompagne sur les meilleures pratiques</li>
+<li>génération de documentation</li>
 </ul>
+<p>💡 AMA analyse, Bob exécute.</p>
 <h2 is-upgraded>Ce que vous allez apprendre dans ce lab:</h2>
 <ul>
 <li>Analyser d&#39;anciennes applications JavaEE avec IBM AMA</li>
 <li>Interpréter les rapports de modernisation</li>
-<li>Utiliser IBM Bob pour refactoriser du code</li>
-<li>Appliquer les recommandations de modernisation de manière automatique</li>
-</ul>
-<h2 is-upgraded>Ce dont vous avez besoin:</h2>
-<ul>
-<li>Java JDK 11 ou supérieur installé</li>
-<li>IBM Bob installé</li>
-<li>Un accès à une VM TechZone où l&#39;on accède à IBM Application Modernization Accelerator</li>
+<li>Utiliser IBM Bob pour automatiser la refactorisation du code</li>
+<li>Valider l&#39;application sur Liberty</li>
 </ul>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="Pré-requis" duration="0">
-        
+        <p>Durée: 10-15 min</p>
+<h2 is-upgraded>Ce dont vous avez besoin:</h2>
+<ol type="1">
+<li>Créer un IBM id</li>
+<li>Java JDK 8 installé</li>
+<li>IBM Bob installé</li>
+<li>Télécharger le projet Java</li>
+</ol>
+<h2 is-upgraded>1. Créer un IBM id :</h2>
+<p>Accéder à la page d&#39;inscription 👉 <a href="https://www.ibm.com/account/reg/us-en/signup?formid=urx-19776" target="_blank">https://www.ibm.com/account/reg/us-en/signup?formid=urx-19776</a></p>
+<ul>
+<li>Remplir le formulaire en utilisant une email d&#39;entreprise</li>
+<li>Un email de confirmation est envoyé</li>
+<li>Cliquer sur <strong>Verify email</strong> dans le message</li>
+<li>Une fois validé, l&#39;IBMid est actif.</li>
+</ul>
+<h2 is-upgraded>2. Pré-requis : Installer Java 8</h2>
+<p>Durée: 5 min</p>
+<p>Cette étape est nécessaire uniquement si <strong>Java 8 n&#39;est pas déjà installé</strong> sur votre machine.</p>
+<h3 is-upgraded>Installation sur Linux</h3>
+<p>Téléchargez et installez IBM Semeru (Java 8) :</p>
+<pre><code language="language-bash" class="language-bash">cd ~/software/bob-lab
+wget https://github.com/ibmruntimes/semeru8-binaries/releases/download/jdk8u482-b08_openj9-0.57.0/ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
+sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
+</code></pre>
+<p>💡 Astuce : pour désinstaller plus tard</p>
+<pre><code language="language-bash" class="language-bash">sudo rpm -e ibm-semeru-open-8-jdk
+</code></pre>
+<h3 is-upgraded>Autres systèmes d&#39;exploitation</h3>
+<p>Vous pouvez télécharger Java 8 depuis :</p>
+<ul>
+<li>IBM Semeru : <a href="https://developer.ibm.com/languages/java/semeru-runtimes/downloads/" target="_blank">https://developer.ibm.com/languages/java/semeru-runtimes/downloads/</a></li>
+<li>Eclipse Temurin : <a href="https://adoptium.net/temurin/releases/?version=8" target="_blank">https://adoptium.net/temurin/releases/?version=8</a></li>
+</ul>
+<h3 is-upgraded>Vérifier l&#39;installation</h3>
+<p>Listez les JDK installés :</p>
+<pre><code language="language-bash" class="language-bash">ls -lrt /usr/lib/jvm/
+</code></pre>
+<h2 is-upgraded>Configurer Java 8</h2>
+<p>Définissez Java 8 comme version active :</p>
+<pre><code language="language-bash" class="language-bash">export JAVA_HOME=/usr/lib/jvm/ibm-semeru-open-8-jdk/
+</code></pre>
+<p>⚠️ Adaptez le chemin si nécessaire selon votre installation.</p>
+<p>À ce stade, Java 8 est prêt pour être utilisé dans les prochaines étapes du lab.</p>
+<h2 is-upgraded>3. Installer IBM Bob :</h2>
+<h3 is-upgraded>Télécharger IBM Bob</h3>
+<p>👉 <a href="https://bob.ibm.com/download" target="_blank">https://bob.ibm.com/download</a> <a href="https://bob.ibm.com/download" target="_blank">[bob.ibm.com]</a></p>
+<p>Choisir la version correspondant à votre OS :</p>
+<ul>
+<li>Windows (.exe)</li>
+<li>macOS (.pkg, Intel ou ARM)</li>
+<li>Linux (.deb / .rpm)</li>
+</ul>
+<h3 is-upgraded>Installer l&#39;application</h3>
+<h4 is-upgraded>Sur Windows</h4>
+<ul>
+<li>Lancer le fichier <code>.exe</code></li>
+<li>Suivre l&#39;assistant d&#39;installation</li>
+<li>Choisir le répertoire (par défaut recommandé)</li>
+<li>Cliquer sur <strong>Finish</strong></li>
+</ul>
+<h4 is-upgraded>Sur macOS</h4>
+<ul>
+<li>Ouvrir le fichier <code>.pkg</code></li>
+<li>Suivre les étapes de l&#39;installateur</li>
+</ul>
+<h4 is-upgraded>Sur Linux</h4>
+<ul>
+<li>Installer via package manager :</li>
+</ul>
+<pre><code language="language-bash" class="language-bash">sudo dpkg -i bob-*.deb
+# ou
+sudo rpm -i bob-*.rpm
+</code></pre>
+<p>✅ Bob est prêt à être utilisé</p>
+<h2 is-upgraded>4. Télécharger sur votre machine le contenu du projet :</h2>
+<p>Télécharger le code de l&#39;application Java <strong>simple-pharmacy</strong> depuis ce lien : <a href="https://github.com/alexandra-hui/simple-pharmacy-twas-j8-struts-V3" target="_blank">https://github.com/alexandra-hui/simple-pharmacy-twas-j8-struts-V3</a></p>
+<p class="image-container"><img alt="Download" src="img/27b7a74057c66906.png"></p>
+<p>Bravo, vous êtes prêts à démarrer ce lab !</p>
+
 
       </google-codelab-step>
     
-      <google-codelab-step label="Partie 1: Analyser vos applications Java" duration="5">
-        <p><strong>Outil utilisé :</strong> IBM Application Modernization Accelerator (AMA)</p>
+      <google-codelab-step label="Partie 1: Analyser vos applications Java" duration="0">
+        <p>Durée: 25 min</p>
+<p><strong>Outil utilisé :</strong> IBM Application Modernization Accelerator (AMA)</p>
 <p>Dans cette étape, vous allez analyser une application existante afin d&#39;évaluer sa complexité et l&#39;effort nécessaire pour la migrer vers un serveur d&#39;application léger <strong>WebSphere Liberty</strong>.</p>
 <h2 is-upgraded>Étape 1.1 : Démarrer AMA et créer un workspace</h2>
 <p>Connectez-vous sur <strong>Application Modernization Accelerator (AMA)</strong> en ouvrant ce lien depuis votre  navigateur:</p>
@@ -210,8 +282,9 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Partie 2 : Tester l&#39;application sur WebSphere Liberty (sans modification)" duration="10">
-        <p>Avant de moderniser l&#39;application, nous allons vérifier si elle peut fonctionner telle quelle sur Liberty.</p>
+      <google-codelab-step label="Partie 2 (optionnelle) : Tester l&#39;application sur WebSphere Liberty (sans modification)" duration="0">
+        <p>Durée: 20min</p>
+<p>Avant de moderniser l&#39;application, nous allons vérifier si elle peut fonctionner telle quelle sur Liberty.</p>
 <p>🎯 <strong>L&#39;Objectif</strong> : identifier rapidement les problèmes réels à corriger, et valider les résultats de l&#39;analyse AMA.</p>
 <h2 is-upgraded>Étape 2.1 : Préparer l&#39;environnement Liberty</h2>
 <p>Ouvrez un terminal de commandes. Créez un répertoire de travail temporaire :</p>
@@ -285,91 +358,109 @@ wlp/bin/server run defaultServer
       </google-codelab-step>
     
       <google-codelab-step label="Partie 3: Moderniser vers WebSphere Liberty avec IBM Bob" duration="0">
-        <p><strong>IBM Bob</strong> et son premium <strong>package JAVA</strong> (add-on) pour automatiser la modernisation de l&#39;application à partir du <strong>plan de migration généré par AMA</strong>.</p>
+        <p>Durée: 45 min</p>
+<p>A présent, nous allons utiliser <strong>IBM Bob</strong> et son premium <strong>package JAVA</strong> (add-on) pour automatiser la modernisation de l&#39;application à partir du <strong>plan de migration généré par AMA</strong>.</p>
 <p><strong>L&#39;Objectif :</strong> appliquer automatiquement les transformations de code, corriger les incompatibilités et valider l&#39;application sur Liberty.</p>
-<h2 is-upgraded>Étape 3.1 : Démarrer le workflow de modernisation Java dans Bob</h2>
-<p>Ouvrez IBM Bob.</p>
-<p>Avant de commencer :</p>
 <ul>
-<li>Configurez un niveau d&#39;auto-approbation (au minimum autoriser la lecture des fichiers)</li>
-<li>Optionnel : autorisez aussi les modifications pour une expérience plus fluide</li>
+<li>Ouvrez IBM Bob depuis le menu applications</li>
+<li>Connectez-vous à votre compte <strong>IBMid</strong> en cliquant sur le bouton <code>Log in to Bob</code>.</li>
 </ul>
-<p>(image)</p>
-<p>A présent, cliquez sur le + et un workflow de modernisation Java apparait.</p>
-<p>Le <strong>workflow Java modernization</strong> dans IBM Bob est un processus guidé qui automatise les principales étapes de transformation d&#39;une application Java vers un environnement moderne comme WebSphere Liberty.</p>
+<p class="image-container"><img alt="Start Bob" src="img/284850af9d381dd8.png"></p>
+<p>Ouvrez l&#39;application <strong>simple-pharmacy</strong> (que vous avez téléchargé en amont - voir page Pré-requis) dans Bob en cliquant sur <code>Fichier</code> &gt; <code>Ouvrir Dossier</code></p>
+<p class="image-container"><img src="img/3f60d410594e8ccd.png"></p>
+<p class="image-container"><img alt="Open project" src="img/1ff797bde9302c94.png"></p>
+<p class="image-container"><img alt="Project ready" src="img/53bdd659b5bbdf84.png"></p>
+<h2 is-upgraded>Étape 3.1 : Configurer l&#39;auto-approbation de Bob (niveau de confiance)</h2>
+<p>Bob fonctionne comme un agent supervisé : il propose des actions (lecture de fichiers, modification de code,...) et vous, <strong>vous gardez le contrôle</strong>.</p>
+<p>Avant de commencer, vous pouvez configurer un niveau d&#39;<strong>auto-approbation</strong> qui permet de définir ce que Bob peut faire automatiquement sans vous demander une confirmation constante.</p>
+<p>Pour une expérience optimale pour ce lab, cliquez sur ce bouton bleu et configurez au minimum :</p>
+<p>✅ Lecture ✅ Ecriture ✅ Sous-tâches ✅ Exécuter</p>
+<p>💡 Dans ce lab, autoriser ces actions permet à Bob de :</p>
+<ul>
+<li>appliquer les recettes AMA automatiquement</li>
+<li>corriger le code sans interruption</li>
+<li>enchaîner build, test et déploiement</li>
+</ul>
+<p class="image-container"><img alt="Auto-approval" src="img/8547ec1e96750ad1.png"></p>
+<p class="image-container"><img alt="Auto-approval" src="img/cf3d308959d97e7.png"></p>
+<h2 is-upgraded>Étape 3.2 : Démarrer le workflow de modernisation Java dans Bob</h2>
+<p>A présent, commençons la modernisation de notre application avec le workflow <strong>Java modernization</strong>.</p>
+<p>Il s&#39;agit d&#39;un processus guidé qui automatise les principales étapes de transformation d&#39;une application Java vers un environnement moderne comme WebSphere Liberty.</p>
 <p><strong>L&#39;Objectif :</strong> réduire drastiquement l&#39;effort manuel en automatisant :</p>
 <ul>
 <li>l&#39;analyse du code</li>
 <li>les transformations techniques</li>
 <li>la validation de l&#39;application</li>
 </ul>
+<p><strong>Cliquez</strong> sur la flèche ▶️ pour démarrer le workflow.</p>
+<p>💡 Si le workflow n&#39;apparaît pas, cliquez sur <strong>+</strong> ou entrez :</p>
+<pre><code language="language-bash" class="language-bash">/start_java_modernization
+</code></pre>
+<p class="image-container"><img alt="Start modernization" src="img/8c65db9b3a0620e6.png"></p>
 <p>Le workflow de modernisation Java se déroule en 3 étapes :</p>
 <ul>
 <li><strong>Analyze</strong></li>
 <li><strong>Upgrade</strong></li>
 <li><strong>Validate</strong></li>
 </ul>
-<p>Cliquez sur <strong>Java modernization</strong> pour démarrer.</p>
-<p>💡 Si le bouton n&#39;apparaît pas, cliquez sur <strong>+</strong> ou entrez :</p>
-<pre><code language="language-bash" class="language-bash">/start_java_modernization
-</code></pre>
-<h2 is-upgraded>Étape 3.2 : Analyse du projet</h2>
+<p class="image-container"><img alt="Start workflow" src="img/669d54aaa28a4b73.png"></p>
+<h2 is-upgraded>Étape 3.3 : Analyse du projet</h2>
 <p>IBM Bob commence par analyser le projet.</p>
+<p class="image-container"><img alt="Analyze project" src="img/bfbff0e42585ec03.png"></p>
 <ul>
 <li>Désactivez <strong>GitFlow</strong> (pour éviter la création d&#39;une branche)</li>
 <li>Sélectionnez <strong>Liberty Replatforming</strong></li>
 <li>Cliquez sur <strong>Proceed</strong></li>
 </ul>
-<p>Lorsque demandé, fournissez le <strong>plan de migration AMA (.zip)</strong> puis sélectionnez :</p>
-<pre><code>Analyze Liberty Migration
+<p class="image-container"><img alt="Liberty Replatforming" src="img/9aaa8281163ea887.png"></p>
+<p>Lorsque demandé, fournissez le <strong>plan de migration AMA (.zip)</strong> puis sélectionnez <code>Analyze Liberty Migration</code> :</p>
+<pre><code>simple-pharmacy-twas-j8-struts-V3/simple-pharmacy-twas-j8-struts-V3/ama/Dmgr01.zip
 </code></pre>
-<h2 is-upgraded>Étape 3.3 : Application des recettes de migration</h2>
-<p>IBM Bob :</p>
-<ul>
-<li>Analyse le plan de migration</li>
-<li>Génère une <strong>ToDo list</strong> basée sur les recommandations AMA</li>
-</ul>
-<p>Autorisez IBM Bob à exécuter les <strong>recipes</strong> (correctifs automatisés).</p>
-<h2 is-upgraded>Corrections automatiques et assistées</h2>
-<p>IBM Bob passe ensuite à des corrections plus avancées :</p>
+<p class="image-container"><img alt="Migration plan" src="img/400c3e998289c61d.png"></p>
+<h2 is-upgraded>Étape 3.4 : Application des recettes de migration</h2>
+<p>Maintenant, Bob analyse le plan de migration et génère une <strong>ToDo list</strong> basée sur les recommandations AMA.</p>
+<p>Autorisez Bob à exécuter les recettes (correctifs automatisés) en cliquant sur <strong>Run recipes</strong>.</p>
+<p class="image-container"><img alt="Run recipes" src="img/4095e11ab753c573.png"></p>
+<h2 is-upgraded>Étape 3.5 : Corrections automatiques et assistées</h2>
+<p>L&#39;étape suivante consiste à utiliser les capacités agentiques de Bob pour effectuer des corrections automatiques plus avancées, notamment en corrigeant les problèmes pour lesquels aucune recette n&#39;était disponible:</p>
 <ul>
 <li>Correction de code (ex : remplacement de <code>ResponseUtil</code>)</li>
 <li>Résolution d&#39;incompatibilités non couvertes par AMA</li>
 </ul>
-<p>Approuvez :</p>
+<p class="image-container"><img alt="Perform agentic upgrade" src="img/895053571ea874d7.png"></p>
+<p>Bob, d&#39;IBM, souhaite modifier le code pour remplacer la fonction <strong>ResponseUtil</strong>. Il s&#39;agit de résoudre un problème lié aux <strong>API Servlet de WebSphere</strong> pour lequel AMA ne disposait d&#39;aucune solution.</p>
+<p>Cliquez pour <strong>Approve</strong> afin d&#39;approuver :</p>
 <ul>
 <li>les modifications de code</li>
 <li>l&#39;exécution du build Maven</li>
 </ul>
-<p>Une fois terminé :</p>
+<p class="image-container"><img alt="Approve" src="img/bb21496274480a5.png"></p>
+<p>Bob a terminé la tâche et résume les étapes effectuées.</p>
 <ul>
 <li>Cliquez sur <strong>Complete Subtask and Return</strong></li>
 <li>Consultez le résumé des actions effectuées</li>
 </ul>
-<h2 is-upgraded>Génération de documentation</h2>
-<p>IBM Bob génère automatiquement :</p>
-<ul>
-<li>une documentation des changements</li>
-<li>des diagrammes (ex : Mermaid)</li>
-</ul>
+<p class="image-container"><img alt="Task completed" src="img/8145703d6164a825.png"></p>
+<h2 is-upgraded>Étape 3.6 : Génération de documentation</h2>
+<p>IBM Bob génère automatiquement une documentation de type <strong>Diagrammes Mermaid</strong> contenant les changements.</p>
+<p class="image-container"><img alt="Documentation" src="img/2836edb341719c23.png"></p>
+<p class="image-container"><img alt="Documentation Mermaid" src="img/87661b154963cd1d.png"></p>
 <p>Vous pouvez aussi vérifier les modifications dans le repository Git.</p>
-<h2 is-upgraded>Déploiement et validation</h2>
-<p>Autorisez IBM Bob à :</p>
-<ul>
-<li>déployer l&#39;application</li>
-<li>exécuter les étapes de validation</li>
-</ul>
-<p>IBM Bob :</p>
+<p class="image-container"><img alt="Git" src="img/a84b9ec345ebd03e.png"></p>
+<h2 is-upgraded>Étape 3.7 : Déploiement et validation</h2>
+<p>Autorisez IBM Bob à déployer l&#39;application.</p>
+<p class="image-container"><img alt="Deploy" src="img/5d1214cbfc62d3eb.png"></p>
+<p>Ensuite, validez les différentes étapes de la liste de tâches proposée.</p>
+<p class="image-container"><img alt="Approve" src="img/d2958e3d5d2ee32.png"></p>
+<p>💡Bob :</p>
 <ul>
 <li>démarre Liberty (plugin Maven)</li>
 <li>vérifie les logs</li>
 <li>détecte les erreurs éventuelles</li>
 </ul>
-<h2 is-upgraded>Gestion des erreurs détectées</h2>
-<p>IBM Bob identifie ici un problème critique :</p>
-<ul>
-<li>incompatibilité entre version Java et Struts</li>
-</ul>
+<h2 is-upgraded>Étape 3.8 : Gestion des erreurs détectées</h2>
+<p>Bob vérifiera qu&#39;aucune instance de Liberty en conflit n&#39;est en cours d&#39;exécution, puis démarrera le serveur Liberty à l&#39;aide du plugin Maven. IBM Bob examinera ensuite les journaux pour détecter d&#39;éventuels problèmes.</p>
+<p>IBM Bob a détecté un problème critique et a identifié qu&#39;il est lié à une <strong>incompatibilité entre la version de Java</strong> utilisée pour compiler le code et celle prise en charge par <strong>Struts</strong>. Pour résoudre ce problème, IBM Bob arrêtera le serveur Liberty, compilera le code avec <strong>Java 8</strong>, modifiera le fichier pom.xml, puis effectuera un nouveau test.</p>
 <p>Actions automatiques :</p>
 <ul>
 <li>arrêt du serveur</li>
@@ -378,44 +469,50 @@ wlp/bin/server run defaultServer
 <li>relancement des tests</li>
 </ul>
 <p>💡 IBM Bob peut automatiquement sélectionner un JDK approprié si autorisé.</p>
-<h2 is-upgraded>Validation finale</h2>
-<p>Après plusieurs corrections :</p>
-<ul>
-<li>le serveur démarre correctement</li>
-<li>les endpoints sont testés</li>
-<li>un résumé final est généré (exportable en Markdown)</li>
-</ul>
-<h2 is-upgraded>Tests manuels</h2>
-<p>Vérifiez l&#39;application dans votre navigateur :</p>
-<ul>
-<li>Dashboard ✅</li>
-<li>Logout ✅</li>
-<li>Medicine → View ❌ (erreur persistante)</li>
-</ul>
-<h2 is-upgraded>Correction d&#39;un bug applicatif</h2>
-<p>Ce problème n&#39;était <strong>pas lié à la migration</strong>.</p>
-<p>Pour le corriger :</p>
-<ol type="1">
-<li>Copiez les premières lignes de l&#39;erreur</li>
-<li>Collez-les dans le chat IBM Bob</li>
-</ol>
-<p>IBM Bob :</p>
-<ul>
-<li>analyse l&#39;erreur</li>
-<li>identifie une page manquante</li>
-<li>génère la correction</li>
-<li>valide automatiquement</li>
-</ul>
-<h2 is-upgraded>Vérification finale</h2>
-<p>Rechargez l&#39;application :</p>
-<ul>
-<li>la page fonctionne correctement</li>
-<li>les résultats sont cohérents</li>
-</ul>
-<p>Confirmez dans IBM Bob que tout est OK.</p>
-<h2 is-upgraded>Arrêter le serveur</h2>
-<pre><code language="language-bash" class="language-bash">mvn liberty:stop
+<p class="image-container"><img alt="Critical issue" src="img/7dd6bc86dd9ded4d.png"></p>
+<p>Pour ce faire, Bob recherchera un JDK approprié et l&#39;utilisera si cela est autorisé.</p>
+<p class="image-container"><img alt="JDK" src="img/574f66df47d890df.png"></p>
+<h2 is-upgraded>Étape 3.9 : Validation finale</h2>
+<p>Une fois la compilation réussie, Bob effectuera à nouveau des tests sur Liberty.</p>
+<p class="image-container"><img alt="Rebuild" src="img/ed3d95fd44404bcc.png"></p>
+<p>Bob a résolu des problèmes supplémentaires.</p>
+<p class="image-container"><img alt="Resolve" src="img/83c5e671b2841182.png"></p>
+<p>Jusqu&#39;à ce que le serveur finisse par démarrer sans problème critique.</p>
+<p class="image-container"><img alt="Start" src="img/8e800748ae7fe001.png"></p>
+<p>Ensuite Bob teste les endpoints.</p>
+<p class="image-container"><img alt="Endpoint" src="img/292a082af6eb4bb.png"></p>
+<p>Enfin, Bob fournit un résumé qui peut également être exporté sous forme de fichier Markdown.</p>
+<p class="image-container"><img alt="Summary" src="img/c947bbe586dac37b.png"></p>
+<p class="image-container"><img alt="Summary" src="img/64358498ca9466d6.png"></p>
+<h2 is-upgraded>Étape 3.10 : Tests manuels et vérification finale</h2>
+<p>Vérifiez l&#39;application vous-même en cliquant sur l&#39;un des liens.</p>
+<p class="image-container"><img alt="Tests" src="img/bd2223c8e16bc270.png"></p>
+<p>Testez le Dashboard.</p>
+<p class="image-container"><img alt="Tests" src="img/357cf60ac0cccb11.png"></p>
+<p>Testez le bouton Logout.</p>
+<p class="image-container"><img alt="Tests" src="img/d3ba16ef9b2b1cf7.png"></p>
+<p>Enfin, cliquez sur <strong>Medicine</strong>, puis sur <strong>View</strong>.</p>
+<p class="image-container"><img alt="Tests" src="img/b4a42d4cafe34b5f.png"></p>
+<p>Comme vous pouvez le constater, le problème persiste.</p>
+<p class="image-container"><img alt="Tests" src="img/59ae1bd9ed76dd2b.png"></p>
+<p>Demandez donc à Bob de résoudre le problème en sélectionnant les premières lignes de l&#39;erreur et en les collant dans la fenêtre de discussion de Bob.</p>
+<p class="image-container"><img alt="Tests" src="img/2e677f4199f9e50.png"></p>
+<p class="image-container"><img alt="Tests" src="img/1c39c6ccb4036d9d.png"></p>
+<p>Bob analyse l&#39;erreur et identifie que cette page est manquante et nécessite d&#39;être créée.</p>
+<p class="image-container"><img alt="Create" src="img/9b68685073c53811.png"></p>
+<p>Bob vérifie de cette erreur est résolue.</p>
+<p class="image-container"><img alt="check" src="img/b132d85914ca2c8.png"></p>
+<p class="image-container"><img alt="check" src="img/6ff2025c699dd700.png"></p>
+<p>Enfin, Bob fournit un résumé.</p>
+<p class="image-container"><img alt="check" src="img/b0b17249c727d2ed.png"><img alt="check" src="img/4b0c010b533bd02b.png"><img alt="check" src="img/96e3f9944c64836c.png"></p>
+<p>Vérifions maintenant si la nouvelle page fonctionne réellement et fournit des résultats pertinents.</p>
+<p class="image-container"><img alt="check" src="img/5f2d71bc0bbbcc10.png"></p>
+<p>Confirmez à Bob que tout semble correct.</p>
+<p class="image-container"><img alt="check" src="img/c0cae62502250acc.png"></p>
+<p>Arrêtez ensuite l&#39;instance Liberty avec la commande</p>
+<pre><code>mvn liberty:stop
 </code></pre>
+<p class="image-container"><img alt="check" src="img/4d3a305842994797.png"></p>
 <h2 is-upgraded>Conclusion</h2>
 <p>Dans cette étape, vous avez :</p>
 <ul>
@@ -424,9 +521,7 @@ wlp/bin/server run defaultServer
 <li>Corrigé des problèmes techniques et fonctionnels</li>
 <li>Validé l&#39;application sur Liberty</li>
 </ul>
-<p>IBM Bob permet d&#39;accélérer fortement la modernisation en combinant <strong>automatisation + assistance intelligente</strong>, jusqu&#39;à la validation finale.</p>
-<h2 is-upgraded>Code exemple</h2>
-<pre><code language="language-python" class="language-python">print(&#34;Hello Codelab!&#34;)```</code></pre>
+<p>💡  IBM Bob permet d&#39;accélérer fortement la modernisation en combinant <strong>automatisation + assistance intelligente</strong>, jusqu&#39;à la validation finale. Les tâches de modernisation qui étaient estimées sur plusieurs jours dans AMA, elles ont finalement été exécutés en quelques minutes avec Bob.</p>
 
 
       </google-codelab-step>
