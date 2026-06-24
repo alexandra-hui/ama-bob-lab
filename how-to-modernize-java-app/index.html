@@ -140,9 +140,10 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
         <p>Durée: 25 min</p>
 <p><strong>Outil utilisé :</strong> IBM Application Modernization Accelerator (AMA)</p>
 <p>Dans cette étape, vous allez analyser une application existante afin d&#39;évaluer sa complexité et l&#39;effort nécessaire pour la migrer vers un serveur d&#39;application léger <strong>WebSphere Liberty</strong>.</p>
-<h2 is-upgraded>Étape 1.1 : Démarrer AMA et créer un workspace</h2>
+<h2 is-upgraded>Étape 1.1 : Démarrer AMA et visulaiser un workspace</h2>
 <p>Connectez-vous sur <strong>Application Modernization Accelerator (AMA)</strong> en ouvrant ce lien depuis votre  navigateur:</p>
 <p><a href="https://ama-ama.apps.itz-z400ao.infra01-lb.tok04.techzone.ibm.com" target="_blank">https://ama-ama.apps.itz-z400ao.infra01-lb.tok04.techzone.ibm.com</a></p>
+<p>authentification en htpasswd_provider , user: userx (de user1 à user20), password: P4ssw0rd!</p>
 <p>Vous arrivez sur la page d&#39;accueil d&#39;AMA, où l&#39;on peut y voir nos workspaces - il s&#39;agit là d&#39;un espace de travail qui regroupe les applications analysées, avec leurs dépendances (bases de données, messaging, etc.) et les résultats d&#39;analyse et rapports.</p>
 <p>💡 <strong>Objectif :</strong> centraliser toutes les informations nécessaires pour planifier une migration. Un workspace correspond généralement à un périmètre applicatif (ex : un environnement WebSphere existant).</p>
 <p class="image-container"><img alt="Start AMA" src="img/9e8bf8d897cdb5de.png"></p>
@@ -152,7 +153,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <h2 is-upgraded>Étape 1.2 : Visualiser les applications</h2>
 <p>Dans le panneau <strong>Visualization</strong>, vous pouvez voir :</p>
 <ul>
-<li>3 applications détectées</li>
+<li>5 applications détectées</li>
 <li>Une dépendance entre l&#39;application <strong>WebSphereBank</strong> et la base de données <strong>BANKDB</strong></li>
 </ul>
 <p class="image-container"><img alt="Visualization" src="img/8f314b7b21d7e108.png"></p>
@@ -167,16 +168,22 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 </ul>
 <p>Détail par application :</p>
 <ul>
-<li><strong>modresorts (simple)</strong><ul>
+<li><strong>modresorts et DefaultApplication (simple)</strong><ul>
 <li>Aucun problème détecté</li>
 <li>Aucune modification nécessaire</li>
 <li>Compatible Liberty directement</li>
 </ul>
 </li>
-<li><strong>simple-pharmacy (modéré)</strong><ul>
+<li><strong>simple-pharmacy  (modéré)</strong><ul>
 <li>2 problèmes identifiés</li>
 <li>Corrections partiellement automatisables</li>
-<li>Effort estimé pour un développeur expérimenté : <strong>1,5 jour</strong></li>
+<li>Effort estimé pour un développeur expérimenté : <strong>3 jours</strong></li>
+</ul>
+</li>
+<li><strong>simple-pharmacy webapp (modéré)</strong><ul>
+<li>1 problèmes identifié</li>
+<li>Corrections partiellement automatisables</li>
+<li>Effort estimé pour un développeur expérimenté : <strong>1 jours</strong></li>
 </ul>
 </li>
 <li><strong>WebSphereBank (complexe)</strong><ul>
@@ -185,22 +192,22 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 </ul>
 </li>
 </ul>
-<p class="image-container"><img alt="Assessment" src="img/a22f22d190028132.png"></p>
+<p class="image-container"><img alt="Assessment" src="img/9696cafb265c1ff4.png"></p>
 <h2 is-upgraded>Étape 1.4 : Analyser une application en détail</h2>
-<p>Cliquez sur <strong>simple-pharmacy_war.ear</strong> pour explorer les actions nécessaires recommandées par AMA.</p>
+<p>Cliquez sur <strong>simple-pharmacy.ear</strong> pour explorer les actions nécessaires recommandées par AMA.</p>
 <p>Sur la gauche, le menu permet d&#39;explorer en détail :</p>
 <ul>
 <li><strong>Complexity score</strong> : vue détaillée des problèmes (déplier pour voir les détails)</li>
 <li><strong>Required code changes</strong> : recommandations de correction (recettes)</li>
 <li><strong>Issues</strong> : estimation détaillée des efforts</li>
 </ul>
-<p class="image-container"><img alt="Assessment Overview" src="img/4685c639d816b026.png"></p>
+<p class="image-container"><img alt="Assessment Overview" src="img/97cbceee13dd4536.png"></p>
 <p>Cliquez sur <strong>Complexity score</strong> pour afficher plus de détails sur les deux problèmes détectés par AMA. Vous devez cliquer sur l&#39;icône en forme de flèche pour voir les détails.</p>
-<p class="image-container"><img alt="Complexity Score" src="img/3421b56088e70cad.png"></p>
+<p class="image-container"><img alt="Complexity Score" src="img/631b4d4d3db123bc.png"></p>
 <p>Cliquez sur <strong>Required code changes</strong> pour voir la solution permettant de corriger l&#39;un des problèmes.</p>
-<p class="image-container"><img alt="Required changes" src="img/c182454344fae9cf.png"></p>
+<p class="image-container"><img alt="Required changes" src="img/b02a647c2afc4f8e.png"></p>
 <p>Cliquez sur <strong>Issues</strong> pour voir les estimations d&#39;effort plus en détail.</p>
-<p class="image-container"><img alt="Issues" src="img/828b9c20f941ae49.png"></p>
+<p class="image-container"><img alt="Issues" src="img/b1c7e3b236665562.png"></p>
 <h2 is-upgraded>Étape 1.5 : Consulter les rapports</h2>
 <p>Sur la gauche, AMA propose plusieurs rapports utiles :</p>
 <ul>
@@ -211,7 +218,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <p>💡 Ces rapports permettent de mieux comprendre les impacts de la migration. Vous pouvez également exporter les rapports pour les partager avec vos équipes de développement.</p>
 <h2 is-upgraded>Étape 1.6 : Générer le plan de migration</h2>
 <p>Remontez en haut de la page et cliquez sur <strong>View migration plan</strong>.</p>
-<p class="image-container"><img alt="View Migration Plan" src="img/4685c639d816b026.png"></p>
+<p class="image-container"><img alt="View Migration Plan" src="img/ed766a28fb3fca1b.png"></p>
 <p>Le plan de migration regroupe tous les éléments nécessaires pour moderniser l&#39;application :</p>
 <ul>
 <li>les artefacts de déploiement (ex : <code>server.xml</code>, <code>Containerfile</code>)</li>
@@ -220,7 +227,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <li>les dépendances identifiées</li>
 </ul>
 <p>Cliquez sur <strong>Download</strong> pour récupérer le plan (fichier <code>.zip</code>).</p>
-<p class="image-container"><img alt="Download" src="img/de5d20053ba38acd.png"></p>
+<p class="image-container"><img alt="Download" src="img/4d1f49b7cfc3f05a.png"></p>
 <h2 is-upgraded>Conclusion</h2>
 <p>Le plan de migration est un livrable central qui sert de point de départ à la modernisation. Il permet de :</p>
 <ul>
@@ -264,7 +271,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <p class="image-container"><img alt="Open project" src="img/1ff797bde9302c94.png"></p>
 <p class="image-container"><img alt="Project ready" src="img/53bdd659b5bbdf84.png"></p>
 <p>A présent, vous voyez les fichiers de notre application Java sur la gauche.</p>
-<h2 is-upgraded>Étape 3.1 : Configurer l&#39;auto-approbation de Bob (niveau de confiance)</h2>
+<h2 is-upgraded>Étape 2.1 : Configurer l&#39;auto-approbation de Bob (niveau de confiance)</h2>
 <p>Bob fonctionne comme un agent supervisé : il propose des actions (lecture de fichiers, modification de code,...) et  <strong>vous gardez le contrôle</strong>.</p>
 <p>Avant de commencer, vous pouvez configurer un niveau d&#39;<strong>auto-approbation</strong> qui permet de définir ce que Bob peut faire automatiquement sans vous demander une confirmation constante.</p>
 <p>Pour une expérience optimale pour ce lab, cliquez sur ce bouton bleu :</p>
@@ -279,7 +286,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <li>enchaîner build, test et déploiement</li>
 </ul>
 <p class="image-container"><img alt="Auto-approval" src="img/cf3d308959d97e7.png"></p>
-<h2 is-upgraded>Étape 3.2 : Démarrer le workflow de modernisation Java dans Bob</h2>
+<h2 is-upgraded>Étape 2.2 : Démarrer le workflow de modernisation Java dans Bob</h2>
 <p>A présent, commençons la modernisation de notre application avec le workflow <strong>Java modernization</strong>.</p>
 <p>Il s&#39;agit d&#39;un processus guidé qui automatise les principales étapes de transformation d&#39;une application Java vers un environnement moderne comme WebSphere Liberty.</p>
 <p><strong>L&#39;Objectif :</strong> réduire drastiquement l&#39;effort manuel en automatisant :</p>
@@ -300,7 +307,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <li><strong>Validate</strong></li>
 </ul>
 <p class="image-container"><img alt="Start workflow" src="img/669d54aaa28a4b73.png"></p>
-<h2 is-upgraded>Étape 3.3 : Analyse du projet</h2>
+<h2 is-upgraded>Étape 2.3 : Analyse du projet</h2>
 <p>IBM Bob commence par analyser le projet.</p>
 <p class="image-container"><img alt="Analyze project" src="img/bfbff0e42585ec03.png"></p>
 <ul>
@@ -310,14 +317,14 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 </ul>
 <p class="image-container"><img alt="Liberty Replatforming" src="img/9aaa8281163ea887.png"></p>
 <p>Lorsque demandé, fournissez le <strong>plan de migration AMA (.zip)</strong> puis sélectionnez <code>Analyze Liberty Migration</code> :</p>
-<pre><code>simple-pharmacy-twas-j8-struts-V3/simple-pharmacy-twas-j8-struts-V3/ama/Dmgr01.zip
+<pre><code>simple-pharmacy-twas-j8-struts-V3/simple-pharmacy-twas-j8-struts-V3/ama/simple-pharmacy.ear_migrationPlan_java8_ee7.zip
 </code></pre>
-<p class="image-container"><img alt="Migration plan" src="img/400c3e998289c61d.png"></p>
-<h2 is-upgraded>Étape 3.4 : Application des recettes de migration</h2>
+<p class="image-container"><img alt="Migration plan" src="img/90fc4a47c0cde0b4.png"></p>
+<h2 is-upgraded>Étape 2.4 : Application des recettes de migration</h2>
 <p>Maintenant, Bob analyse le plan de migration et génère une <strong>ToDo list</strong> basée sur les recommandations AMA.</p>
 <p>Autorisez Bob à exécuter les recettes (correctifs automatisés) en cliquant sur <strong>Run recipes</strong>.</p>
 <p class="image-container"><img alt="Run recipes" src="img/4095e11ab753c573.png"></p>
-<h2 is-upgraded>Étape 3.5 : Corrections automatiques et assistées</h2>
+<h2 is-upgraded>Étape 2.5 : Corrections automatiques et assistées</h2>
 <p>L&#39;étape suivante consiste à utiliser les capacités agentiques de Bob pour effectuer des corrections automatiques plus avancées, notamment en corrigeant les problèmes pour lesquels aucune recette n&#39;était disponible:</p>
 <ul>
 <li>Correction de code (ex : remplacement de <code>ResponseUtil</code>)</li>
@@ -337,13 +344,13 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <li>Consultez le résumé des actions effectuées</li>
 </ul>
 <p class="image-container"><img alt="Task completed" src="img/8145703d6164a825.png"></p>
-<h2 is-upgraded>Étape 3.6 : Génération de documentation</h2>
+<h2 is-upgraded>Étape 2.6 : Génération de documentation</h2>
 <p>IBM Bob génère automatiquement une documentation de type <strong>Diagrammes Mermaid</strong> contenant les changements.</p>
 <p class="image-container"><img alt="Documentation" src="img/2836edb341719c23.png"></p>
 <p class="image-container"><img alt="Documentation Mermaid" src="img/87661b154963cd1d.png"></p>
 <p>Vous pouvez aussi vérifier les modifications dans le repository Git.</p>
 <p class="image-container"><img alt="Git" src="img/a84b9ec345ebd03e.png"></p>
-<h2 is-upgraded>Étape 3.7 : Déploiement et validation</h2>
+<h2 is-upgraded>Étape 2.7 : Déploiement et validation</h2>
 <p>Autorisez IBM Bob à déployer l&#39;application.</p>
 <p class="image-container"><img alt="Deploy" src="img/5d1214cbfc62d3eb.png"></p>
 <p>Ensuite, validez les différentes étapes de la liste de tâches proposée.</p>
@@ -354,7 +361,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <li>vérifie les logs</li>
 <li>détecte les erreurs éventuelles</li>
 </ul>
-<h2 is-upgraded>Étape 3.8 : Gestion des erreurs détectées</h2>
+<h2 is-upgraded>Étape 2.8 : Gestion des erreurs détectées</h2>
 <p>Bob vérifiera qu&#39;aucune instance de Liberty en conflit n&#39;est en cours d&#39;exécution, puis démarrera le serveur Liberty à l&#39;aide du plugin Maven. IBM Bob examinera ensuite les journaux pour détecter d&#39;éventuels problèmes.</p>
 <p>IBM Bob a détecté un problème critique et a identifié qu&#39;il est lié à une <strong>incompatibilité entre la version de Java</strong> utilisée pour compiler le code et celle prise en charge par <strong>Struts</strong>. Pour résoudre ce problème, IBM Bob arrêtera le serveur Liberty, compilera le code avec <strong>Java 8</strong>, modifiera le fichier pom.xml, puis effectuera un nouveau test.</p>
 <p>Actions automatiques :</p>
@@ -368,7 +375,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <p class="image-container"><img alt="Critical issue" src="img/7dd6bc86dd9ded4d.png"></p>
 <p>Pour ce faire, Bob recherchera un JDK approprié et l&#39;utilisera si cela est autorisé.</p>
 <p class="image-container"><img alt="JDK" src="img/574f66df47d890df.png"></p>
-<h2 is-upgraded>Étape 3.9 : Validation finale</h2>
+<h2 is-upgraded>Étape 2.9 : Validation finale</h2>
 <p>Une fois la compilation réussie, Bob effectuera à nouveau des tests sur Liberty.</p>
 <p class="image-container"><img alt="Rebuild" src="img/ed3d95fd44404bcc.png"></p>
 <p>Bob a résolu des problèmes supplémentaires.</p>
@@ -380,11 +387,11 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <p>Enfin, Bob fournit un résumé qui peut également être exporté sous forme de fichier Markdown.</p>
 <p class="image-container"><img alt="Summary" src="img/c947bbe586dac37b.png"></p>
 <p class="image-container"><img alt="Summary" src="img/64358498ca9466d6.png"></p>
-<h2 is-upgraded>Étape 3.10 : Tests manuels et vérification finale</h2>
+<h2 is-upgraded>Étape 2.10 : Tests manuels et vérification finale</h2>
 <p>Vérifiez l&#39;application vous-même en cliquant sur l&#39;un des liens.</p>
 <p class="image-container"><img alt="Tests" src="img/bd2223c8e16bc270.png"></p>
-<p>Testez le Dashboard.</p>
-<p class="image-container"><img alt="Tests" src="img/357cf60ac0cccb11.png"></p>
+<p>Testez le Dashboard au travers de l&#39;url http://localhost:9080/simple-pharmacy/dashboard</p>
+<p class="image-container"><img alt="Tests" src="img/ff411b985ecf3a0c.png"></p>
 <p>Testez le bouton Logout.</p>
 <p class="image-container"><img alt="Tests" src="img/d3ba16ef9b2b1cf7.png"></p>
 <p>Enfin, cliquez sur <strong>Medicine</strong>, puis sur <strong>View</strong>.</p>
@@ -417,7 +424,7 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 <li>Corrigé des problèmes techniques et fonctionnels</li>
 <li>Validé l&#39;application sur Liberty</li>
 </ul>
-<p>💡  IBM Bob permet d&#39;accélérer fortement la modernisation en combinant <strong>automatisation + assistance intelligente</strong>, jusqu&#39;à la validation finale. Les tâches de modernisation qui étaient estimées sur plusieurs jours dans AMA, elles ont finalement été exécutés en quelques minutes avec Bob.</p>
+<p>💡  IBM Bob permet d&#39;accélérer fortement la modernisation en combinant <strong>automatisation + assistance intelligente</strong>, jusqu&#39;à la validation finale. Les tâches de modernisation qui étaient estimées sur plusieurs jours dans AMA, elles ont finalement été exécutées en quelques minutes avec Bob.</p>
 
 
       </google-codelab-step>
@@ -432,8 +439,9 @@ sudo rpm -i ibm-semeru-open-8-jdk-1.8.0.482.b08_0.57.0-1.x86_64.rpm
 </ul>
 <p>Et si besoin, n&#39;hésitez pas à contacter l&#39;équipe de TechSales IBM :</p>
 <table>
-<tr><td colspan="2" rowspan="1"><p><img style="width: 120.00px" src="img/3c4b9ec318a6e499.png"><br>       <strong>Hervé Grange<br></strong>       Customer Success Engineer<br>       hgrange@fr.ibm.com<br>     </p>
-</td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"><p><img style="width: 120.00px" src="img/9d9e815e8a76affe.png"><br>       <strong>Alexandra Huillet<br></strong>       Customer Success Engineer<br>       ahuillet@fr.ibm.com<br>     </p>
+<tr><td colspan="1" rowspan="1"><p><img style="width: 120.00px" src="img/3c4b9ec318a6e499.png"><br>       <strong>Hervé Grange<br></strong>       Customer Success Engineer<br>       hgrange@fr.ibm.com<br>     </p>
+</td><td colspan="1" rowspan="1"><p><img style="width: 120.00px" src="img/c7b756115bd5fbca.png"><br>       <strong>David Macchion<br></strong>       Client Enginnering Solution Architect<br>       david.macchion@ibm.com<br>     </p>
+</td><td colspan="1" rowspan="1"><p><img style="width: 120.00px" src="img/9d9e815e8a76affe.png"><br>       <strong>Alexandra Huillet<br></strong>       Customer Success Engineer<br>       ahuillet@fr.ibm.com<br>     </p>
 </td></tr>
 </table>
 
